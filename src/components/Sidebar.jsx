@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faChartColumn, faChartPie, faScroll } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const location = useLocation()
+  const navigate = useNavigate()
 
   const [bg, setBg] = useState({ home: '', graphs: '', papers: '' })
   const [disp, setDisp] = useState(false)
 
   useEffect(() => {
+    console.log(location)
     if (location.pathname === '/dashboard') setBg({ home: 'bg-teal-600 text-white', graphs: '', papers: '' })
     if (location.pathname === '/graphs') setBg({ home: '', graphs: 'bg-teal-600 text-white', papers: '' })
     if (location.pathname === '/papers') setBg({ home: '', graphs: '', papers: 'bg-teal-600 text-white' })
     
     if (location.pathname === '/') setDisp(false)
     else setDisp(true)
-  }, [])
+  }, [location])
 
   return (
     <div className={`${isSidebarOpen && !disp ? 'hidden' : 'block'} ${disp ? 'lg:block' : 'lg:hidden'} lg:bg-teal-700/[0.4] bg-teal-700 h-screen w-80 fixed left-0 top-0 overflow-y-auto ease-in-out duration-300`}>
@@ -37,14 +39,14 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
       <nav className='my-8'>
         <ul className="py-2 w-full flex flex-col justify-center">
-          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.home}`}>
-            <a href="/dashboard"><FontAwesomeIcon icon={faChartColumn} className='mr-4' /> Home</a>
+          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.home}`} onClick={() => navigate('/dashboard', { replace: true })}>
+            <button><FontAwesomeIcon icon={faChartColumn} className='mr-4' /> Home</button>
           </li>
-          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.graphs}`}>
-            <a href="/graphs"><FontAwesomeIcon icon={faChartPie} className='mr-4' /> Graphs</a>
+          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.graphs}`} onClick={() => navigate('/graphs', { replace: true })}>
+            <button><FontAwesomeIcon icon={faChartPie} className='mr-4' /> Graphs</button>
           </li>
-          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.papers}`}>
-            <a href="/papers"><FontAwesomeIcon icon={faScroll} className='mr-4' /> Papers</a>
+          <li className={`p-4 hover:bg-teal-700 cursor-pointer text-xl w-full ${bg.papers}`} onClick={() => navigate('/papers', { replace: true })}>
+            <button><FontAwesomeIcon icon={faScroll} className='mr-4' /> Papers</button>
           </li>
         </ul>
       </nav>

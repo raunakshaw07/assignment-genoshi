@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import cardOneBg from '../images/card1.jpg'
 import cardTwoBg from '../images/card2.jpg'
 import cardThreeBg from '../images/card3.jpg'
 
 const Pricing = () => {
+    const navigate = useNavigate();
     const [isClicked, setIsClicked] = useState({basic: false, pro: false, enterprise: false});
     const [selected, setSelected] = useState(null);
 
@@ -67,7 +69,7 @@ const Pricing = () => {
         </div>
 
         <button className='px-8 py-4 bg-violet-800 text-white font-semibold rounded-full mb-4' onClick={handleSelection}>Continue</button>
-        <button className='px-8 py-4 bg-amber-400 font-semibold rounded-full absolute right-8' onClick={() => window.location.href = '/dashboard'}>Go To Dashboard</button>
+        <button className='px-8 py-4 bg-amber-400 font-semibold rounded-full absolute right-8' onClick={() => navigate('/dashboard', { replace: true })}>Go To Dashboard</button>
 
 
     </div>
