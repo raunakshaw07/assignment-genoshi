@@ -7,7 +7,7 @@ import FileUploadModal from './FileUploadModal';
 const Papers = ({ setPageTitle }) => {
     useEffect(() => {
         setPageTitle("Papers")
-    }, [])
+    }, [setPageTitle])
     
     const [papers, setPapers] = useState([
         {

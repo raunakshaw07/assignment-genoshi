@@ -4,7 +4,7 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContai
 const Graphs = ({ setPageTitle }) => {
     useEffect(() => {
         setPageTitle("Graphs")
-    }, [])
+    }, [setPageTitle])
 
     const data = [
         { name: 'Jan', value: 20 },

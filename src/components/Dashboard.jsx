@@ -32,7 +32,7 @@ const Dashboard = ({ setPageTitle }) => {
 
   useEffect(() => {
     setPageTitle('Dashboard');
-  }, [])
+  }, [setPageTitle])
 
 
   return (

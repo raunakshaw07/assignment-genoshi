@@ -1,12 +1,9 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-// import WhiteBg from '../../images/bg2.jpg'
 
 const MainContent = ({ children, pageTitle, toggleSidebar, component }) => {
-  return( 
-    // <div className={`lg:ml-80 ml-0 py-8 px-16 w-full min-h-screen bg-slate-100 transition-all duration-300`}>
+  return(
     <div className={`${component ? 'lg:ml-80' : 'lg:ml-0'} ml-0 py-8 px-16 w-full min-h-screen transition-all duration-300`}>
 
       {

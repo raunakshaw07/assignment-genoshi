@@ -27,13 +27,13 @@ function App() {
     else {
       setComponent(true)
     }
-  }, [])
+  }, [location])
 
   useEffect(() => {
     let windowWidth = window.innerWidth
     if (windowWidth < 768) setSidebarOpen(false)
     else setSidebarOpen(true) 
-  }, [])
+  }, [setSidebarOpen])
 
   return (
     <div className={`flex ${component ? 'white-bg' : 'gradiant-bg'}`}>
