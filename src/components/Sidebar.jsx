@@ -17,10 +17,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     
     if (location.pathname === '/') setDisp(false)
     else setDisp(true)
-  }, [location])
+
+    console.log(disp)
+    console.log(isSidebarOpen)
+  }, [location, disp, isSidebarOpen])
 
   return (
-    <div className={`${isSidebarOpen && disp ? 'hidden' : 'block'} ${disp ? 'lg:block' : 'lg:hidden'} lg:bg-teal-700/[0.4] bg-teal-700 h-screen w-80 fixed left-0 top-0 overflow-y-auto ease-in-out duration-300 z-50`}>
+    <div className={`${!isSidebarOpen ? 'hidden' : 'block'} ${disp ? 'lg:block' : 'lg:hidden'} lg:bg-teal-700/[0.4] bg-teal-700 h-screen w-80 fixed left-0 top-0 overflow-y-auto ease-in-out duration-300 z-50`}>
       <button
         onClick={toggleSidebar}
         className="lg:hidden absolute top-4 right-4 p-2 text-white"
