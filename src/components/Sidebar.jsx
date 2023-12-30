@@ -18,8 +18,6 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     if (location.pathname === '/') setDisp(false)
     else setDisp(true)
 
-    console.log(disp)
-    console.log(isSidebarOpen)
   }, [location, disp, isSidebarOpen])
 
   return (
