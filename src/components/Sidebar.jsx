@@ -11,7 +11,6 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const [disp, setDisp] = useState(false)
 
   useEffect(() => {
-    console.log(location)
     if (location.pathname === '/dashboard') setBg({ home: 'bg-teal-600 text-white', graphs: '', papers: '' })
     if (location.pathname === '/graphs') setBg({ home: '', graphs: 'bg-teal-600 text-white', papers: '' })
     if (location.pathname === '/papers') setBg({ home: '', graphs: '', papers: 'bg-teal-600 text-white' })
@@ -21,7 +20,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   }, [location])
 
   return (
-    <div className={`${isSidebarOpen && !disp ? 'hidden' : 'block'} ${disp ? 'lg:block' : 'lg:hidden'} lg:bg-teal-700/[0.4] bg-teal-700 h-screen w-80 fixed left-0 top-0 overflow-y-auto ease-in-out duration-300`}>
+    <div className={`${isSidebarOpen && disp ? 'hidden' : 'block'} ${disp ? 'lg:block' : 'lg:hidden'} lg:bg-teal-700/[0.4] bg-teal-700 h-screen w-80 fixed left-0 top-0 overflow-y-auto ease-in-out duration-300 z-50`}>
       <button
         onClick={toggleSidebar}
         className="lg:hidden absolute top-4 right-4 p-2 text-white"
